@@ -19,7 +19,7 @@ npm install
 - `fix/budget-calculation`
 - `refactor/tool-structure`
 
-**Commits**: Use conventional commits format. Write concise, direct messages in imperative mood. Do NOT include co-author attributions or references to AI tools.
+**Commits**: Use conventional commits format. Write concise, direct messages in imperative mood.
 
 Format:
 ```
@@ -50,7 +50,7 @@ If unsure about commit scope or message, ask the user.
 **Workflow**:
 1. Create branch from main: `git checkout -b feature/your-feature`
 2. Make focused commits as you complete logical units of work
-3. Push changes after committing
+3. Prompt the user asking to push changes after committing
 
 ## Required Environment Variables
 
