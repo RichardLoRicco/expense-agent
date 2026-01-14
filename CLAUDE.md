@@ -12,6 +12,46 @@ npm run dev
 npm install
 ```
 
+## Git Workflow
+
+**Branching**: Create a feature branch before making changes. Use descriptive branch names:
+- `feature/add-expense-tags`
+- `fix/budget-calculation`
+- `refactor/tool-structure`
+
+**Commits**: Use conventional commits format. Write concise, direct messages in imperative mood. Do NOT include co-author attributions or references to AI tools.
+
+Format:
+```
+<type>: <title summarizing changes>
+
+<body with details about what changed and why>
+```
+
+Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`
+
+Examples:
+```
+feat: Add expense tagging feature
+
+Allow users to add custom tags to expenses for better categorization.
+Tags are stored as an array and searchable via get-expenses tool.
+```
+
+```
+fix: Correct budget overflow calculation
+
+Budget percentage was exceeding 100% when expenses surpassed the limit.
+Now caps display at 100% and shows overage amount separately.
+```
+
+If unsure about commit scope or message, ask the user.
+
+**Workflow**:
+1. Create branch from main: `git checkout -b feature/your-feature`
+2. Make focused commits as you complete logical units of work
+3. Push changes after committing
+
 ## Required Environment Variables
 
 - `DATABASE_URL` - PostgreSQL connection string (used for both app data and Mastra internal state)
