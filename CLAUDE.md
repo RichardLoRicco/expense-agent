@@ -22,7 +22,7 @@ npm install
 **Commits**: Use conventional commits format. Write concise, direct messages in imperative mood.
 
 Format:
-```
+```text
 <type>: <title summarizing changes>
 
 <body with details about what changed and why>
@@ -31,14 +31,14 @@ Format:
 Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`
 
 Examples:
-```
+```text
 feat: Add expense tagging feature
 
 Allow users to add custom tags to expenses for better categorization.
 Tags are stored as an array and searchable via get-expenses tool.
 ```
 
-```
+```text
 fix: Correct budget overflow calculation
 
 Budget percentage was exceeding 100% when expenses surpassed the limit.
@@ -59,7 +59,7 @@ Title: Use conventional commits format (e.g., `fix: Correct budget calculation` 
 Description: Keep it concise, casual, and to the point. No flowery language, lists, or headings. Show simple before/after code examples for fixes, or just after examples for new features.
 
 Example PR description:
-```
+```text
 Fixed an issue where budget percentages could exceed 100%.
 
 Before:
