@@ -1,0 +1,22 @@
+{
+  "name": "expense-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "mastra dev"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^1.2.0",
+    "@mastra/core": "^0.24.9",
+    "@mastra/pg": "^0.2.0",
+    "pg": "^8.13.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "mastra": "^0.18.9",
+    "typescript": "^5.7.0"
+  }
+}
