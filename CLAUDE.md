@@ -52,6 +52,23 @@ If unsure about commit scope or message, ask the user.
 2. Make focused commits as you complete logical units of work
 3. Prompt the user asking to push changes after committing
 
+**Pull Requests**: Use `gh pr create --web` to open the PR in the browser so the user can edit the title/description if needed.
+
+Title: Use conventional commits format (e.g., `fix: Correct budget calculation` or `feat(tools): Add expense tagging`).
+
+Description: Keep it concise, casual, and to the point. No flowery language, lists, or headings. Show simple before/after code examples for fixes, or just after examples for new features.
+
+Example PR description:
+```
+Fixed an issue where budget percentages could exceed 100%.
+
+Before:
+`Budget used: 150%`
+
+After:
+`Budget used: 100% (exceeded by $50)`
+```
+
 ## Required Environment Variables
 
 - `DATABASE_URL` - PostgreSQL connection string (used for both app data and Mastra internal state)
