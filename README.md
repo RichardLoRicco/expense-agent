@@ -27,8 +27,8 @@ A personal expense management assistant built with the [Mastra](https://mastra.a
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd expense-agent
+    git clone https://github.com/RichardLoRicco/expense-agent
+    cd expense-agent
    ```
 
 2. **Install dependencies**:
@@ -51,7 +51,7 @@ Start the development server with the Mastra playground:
 npm run dev
 ```
 
-The playground UI will be available (usually at `http://localhost:4000`). You can interact with the **Expense Agent** using natural language:
+The playground UI will be available at `http://localhost:4111` by default. If port 4111 is in use, Mastra will probe ports 4111–4131. You can override this using the `PORT` environment variable or Mastra configuration. You can interact with the **Expense Agent** using natural language:
 
 ### Example Prompts
 
