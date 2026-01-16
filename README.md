@@ -1,6 +1,6 @@
 # Expense Agent 💰
 
-A personal expense management assistant built with the [Mastra](https://mastra.ai/) framework and Google Gemini 2.0 Flash. This agent helps you track spending, manage budgets, and gain insights into your financial habits using natural language.
+A personal expense management assistant built with the [Mastra](https://mastra.ai/) framework and Google Gemini 3.0 Flash. This agent helps you track spending, manage budgets, and gain insights into your financial habits using natural language.
 
 ## Features
 
@@ -13,7 +13,7 @@ A personal expense management assistant built with the [Mastra](https://mastra.a
 ## Tech Stack
 
 - **Framework**: [Mastra](https://mastra.ai/)
-- **LLM**: Google Gemini 2.0 Flash
+- **LLM**: Google Gemini 3.0 Flash
 - **Database**: PostgreSQL (via `pg`)
 - **Runtime**: Node.js / TypeScript
 
