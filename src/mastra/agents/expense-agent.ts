@@ -46,7 +46,7 @@ export const expenseAgent = new Agent({
 - Treat the user's financial data with care
 - Be proactive about insights (e.g., "You're at 80% of your food budget")`,
 
-  model: google('gemini-3.0-flash'),
+  model: google('gemini-3-flash'),
 
   tools: {
     addExpense: addExpenseTool,
