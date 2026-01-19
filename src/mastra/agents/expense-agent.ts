@@ -1,4 +1,5 @@
 import { Agent } from '@mastra/core/agent';
+import { Memory } from '@mastra/memory';
 import { google } from '@ai-sdk/google';
 
 import { addExpenseTool } from '../tools/add-expense.js';
@@ -55,4 +56,11 @@ export const expenseAgent = new Agent({
     setBudget: setBudgetTool,
     checkBudget: checkBudgetTool,
   },
+
+  memory: new Memory({
+    options: {
+      lastMessages: 10,
+      semanticRecall: false,
+    },
+  }),
 });
