@@ -1,4 +1,5 @@
 import { Agent } from '@mastra/core/agent';
+import { Memory } from '@mastra/memory';
 import { google } from '@ai-sdk/google';
 
 import { addExpenseTool } from '../tools/add-expense.js';
@@ -46,7 +47,7 @@ export const expenseAgent = new Agent({
 - Treat the user's financial data with care
 - Be proactive about insights (e.g., "You're at 80% of your food budget")`,
 
-  model: google('gemini-2.0-flash'),
+  model: google('gemini-3-flash'),
 
   tools: {
     addExpense: addExpenseTool,
@@ -55,4 +56,11 @@ export const expenseAgent = new Agent({
     setBudget: setBudgetTool,
     checkBudget: checkBudgetTool,
   },
+
+  memory: new Memory({
+    options: {
+      lastMessages: 10,
+      semanticRecall: false,
+    },
+  }),
 });
