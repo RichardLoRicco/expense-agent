@@ -38,7 +38,7 @@ export const parseReceiptTool = createTool({
   outputSchema: parsedReceiptSchema,
   execute: async ({ context }) => {
     const result = await generateObject({
-      model: google('gemini-3-flash-preview'),
+      model: google('gemini-2.5-flash'),
       schema: parsedReceiptSchema,
       messages: [
         {
