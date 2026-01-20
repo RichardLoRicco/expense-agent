@@ -66,3 +66,17 @@ export interface BudgetStatus {
   isOverBudget: boolean;
   period: 'weekly' | 'monthly';
 }
+
+// Parsed receipt data from image analysis (confidence is 0-1 where 1 = certain)
+export interface ParsedReceipt {
+  vendor: string;
+  vendorConfidence: number;
+  totalAmount: number;
+  amountConfidence: number;
+  date: string; // YYYY-MM-DD or empty if not found
+  dateConfidence: number;
+  category: Category;
+  categoryConfidence: number;
+  lineItems: Array<{ description: string; amount: number }>;
+  rawText: string;
+}
