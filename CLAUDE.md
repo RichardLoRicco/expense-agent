@@ -80,7 +80,7 @@ This is a **Mastra AI agent** for personal expense tracking, built with the Mast
 
 ### Core Structure
 
-```
+```text
 src/mastra/
 ├── index.ts           # Mastra instance setup, initializes DB and registers agent
 ├── agents/
@@ -100,7 +100,7 @@ src/mastra/
 ### Key Patterns
 
 **Agent Instructions**: Always list available tools explicitly in the agent's `instructions` with trigger conditions. This helps the LLM decide when to call each tool. See `expense-agent.ts` for the pattern:
-```
+```text
 ## Available Tools
 - toolName: Use when [trigger condition]
 ```
