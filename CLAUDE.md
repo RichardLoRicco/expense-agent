@@ -72,24 +72,26 @@ After:
 ## Required Environment Variables
 
 - `DATABASE_URL` - PostgreSQL connection string (used for both app data and Mastra internal state)
+- `GOOGLE_GENERATIVE_AI_API_KEY` - Google AI API key for Gemini model (agent chat and receipt parsing)
 
 ## Architecture Overview
 
-This is a **Mastra AI agent** for personal expense tracking, built with the Mastra framework and Google's Gemini 2.0 Flash model.
+This is a **Mastra AI agent** for personal expense tracking, built with the Mastra framework and Google's Gemini 2.5 Flash model.
 
 ### Core Structure
 
-```
+```text
 src/mastra/
 ├── index.ts           # Mastra instance setup, initializes DB and registers agent
 ├── agents/
-│   └── expense-agent.ts   # Agent definition with instructions and tool bindings
+│   └── expense-agent.ts   # Agent definition with instructions, memory config, and tool bindings
 ├── tools/             # Individual tool implementations (one file per tool)
 │   ├── add-expense.ts
 │   ├── get-expenses.ts
 │   ├── get-summary.ts
 │   ├── set-budget.ts
-│   └── check-budget.ts
+│   ├── check-budget.ts
+│   └── parse-receipt.ts   # Image analysis using Gemini vision
 └── lib/
     ├── types.ts       # TypeScript interfaces and the CATEGORIES constant
     └── db.ts          # PostgreSQL operations and table initialization
@@ -98,7 +100,7 @@ src/mastra/
 ### Key Patterns
 
 **Agent Instructions**: Always list available tools explicitly in the agent's `instructions` with trigger conditions. This helps the LLM decide when to call each tool. See `expense-agent.ts` for the pattern:
-```
+```text
 ## Available Tools
 - toolName: Use when [trigger condition]
 ```
@@ -112,6 +114,10 @@ src/mastra/
 **Dual Database Usage**: The same PostgreSQL database serves two purposes:
 1. **Application data**: `expenses` and `budgets` tables (managed by `lib/db.ts`)
 2. **Mastra state**: threads and messages (managed by `PostgresStore` in `index.ts`)
+
+**Memory**: The agent uses `@mastra/memory` to maintain conversation context. Configured in `expense-agent.ts` with `lastMessages: 10` to keep recent context without excessive token usage.
+
+**Receipt Parsing**: The `parseReceipt` tool uses Gemini's vision capability via `generateObject()` from the Vercel AI SDK. It returns structured data with confidence scores (0-1) so the agent can decide when to ask for user verification.
 
 ### Expense Categories
 
